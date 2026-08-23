@@ -47,3 +47,124 @@ body {
   color: var(--color-text-primary);
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Yükleniyor ekranı --- */
+.loading-screen {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-screen .loading {
+  color: var(--color-text-secondary);
+  font-size: 14px;
+}
+
+/* --- Giriş ekranı --- */
+.login-screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  padding: var(--space-xl) var(--space-lg);
+  text-align: center;
+}
+
+.login-screen__star {
+  font-size: 28px;
+  color: var(--color-gold);
+  text-shadow: 0 0 18px rgba(245, 196, 81, .55);
+  animation: login-star-glow 3.2s ease-in-out infinite;
+}
+
+@keyframes login-star-glow {
+  0%, 100% { opacity: .75; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.12); }
+}
+
+.login-screen__logo {
+  width: 148px;
+  max-width: 60vw;
+  height: auto;
+  margin-bottom: var(--space-sm);
+  filter: drop-shadow(0 8px 28px rgba(0, 0, 0, .35));
+}
+
+.login-screen__tagline {
+  margin: 0;
+  max-width: 260px;
+  color: var(--color-text-secondary);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.login-screen__button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+  padding: 13px 26px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: #fff;
+  color: #1f2a30;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .28);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.login-screen__button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, .35);
+}
+
+.login-screen__button:active {
+  transform: translateY(0);
+}
+
+.login-screen__google-icon {
+  flex-shrink: 0;
+}
+
+/* --- Uygulama kabuğu / alt sekme çubuğu --- */
+.app-shell {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#screen-content {
+  flex: 1;
+}
+
+.tabbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  padding: var(--space-sm) 0 var(--space-md);
+  background: rgba(0, 0, 0, .32);
+  border-top: 1px solid var(--color-card-border);
+  font-size: 11px;
+}
+
+.tab {
+  color: var(--color-text-secondary);
+  text-align: center;
+  padding: 4px 8px 0;
+}
+
+.tab.on {
+  color: var(--color-turquoise);
+}

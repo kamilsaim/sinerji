@@ -12,10 +12,13 @@ describe('renderShell', () => {
     expect(root.textContent).toContain('Yükleniyor');
   });
 
-  it('session null iken giriş ekranı ve Google giriş butonu gösterir', () => {
+  it('session null iken giriş ekranı, logo ve Google giriş butonu gösterir', () => {
     renderShell(root, { session: null, loading: false });
     const button = root.querySelector('[data-action="sign-in-google"]');
+    const logo = root.querySelector('.login-screen__logo');
     expect(button).not.toBeNull();
+    expect(logo).not.toBeNull();
+    expect(logo.getAttribute('src')).toBe('/logo.png');
     expect(root.textContent).toContain('Google ile Giriş Yap');
   });
 

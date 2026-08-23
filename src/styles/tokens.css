@@ -79,24 +79,18 @@ body {
   text-align: center;
 }
 
-.login-screen__star {
-  font-size: 28px;
-  color: var(--color-gold);
-  text-shadow: 0 0 18px rgba(245, 196, 81, .55);
-  animation: login-star-glow 3.2s ease-in-out infinite;
-}
-
-@keyframes login-star-glow {
-  0%, 100% { opacity: .75; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.12); }
-}
-
 .login-screen__logo {
-  width: 148px;
-  max-width: 60vw;
+  width: 172px;
+  max-width: 62vw;
   height: auto;
   margin-bottom: var(--space-sm);
   filter: drop-shadow(0 8px 28px rgba(0, 0, 0, .35));
+  animation: login-logo-glow 3.6s ease-in-out infinite;
+}
+
+@keyframes login-logo-glow {
+  0%, 100% { filter: drop-shadow(0 8px 28px rgba(0, 0, 0, .35)); }
+  50% { filter: drop-shadow(0 8px 28px rgba(0, 0, 0, .35)) drop-shadow(0 0 22px rgba(245, 196, 81, .35)); }
 }
 
 .login-screen__tagline {

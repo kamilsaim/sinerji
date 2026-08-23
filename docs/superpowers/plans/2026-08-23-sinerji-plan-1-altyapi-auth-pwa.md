@@ -1,5 +1,24 @@
 # Sinerji — Plan 1: Temel Altyapı + Auth + PWA İskeleti
 
+> **Durum: ✅ TAMAMLANDI ve canlıda** (2026-08-23) — https://sinerji.web.app
+>
+> Plan yazıldığı haliyle 8 görev de uygulandı ve commit edildi. Uygulama sırasında plana ek olarak
+> şunlar da eklendi (kullanıcı isteğiyle, ayrı commit'lerde):
+> - **Misafir modu** — girişsiz gezinme, `session-store.js`'e `guest` state'i eklendi
+> - **Login ekranı görsel iyileştirmesi** — logo, yanıp sönen yıldız halesi, Google buton parıltısı
+> - **Alt menü ikonları + yıldız kabarma animasyonu** — spec 2.2.1'deki animasyon canlıya alındı
+> - **`isSupabaseConfigured()`** — gerçek Supabase bilgisi girilene kadar Google girişi güvenli
+>   şekilde devre dışı ("yakında aktif olacak" mesajı, hata fırlatmıyor)
+> - **Service worker düzeltmesi** — ilk sürüm cache-first'ti ve her deploy'da eski sürümü sonsuza
+>   kadar önbellekten sunuyordu; network-first + `sinerji-shell-v2` cache adına geçildi
+> - Proje `E:\...\sinerji` (Drive) → `C:\Users\kml\projects\sinerji` (yerel) taşındı, GitHub'a
+>   (`github.com/kamilsaim/sinerji`) push edildi, Firebase Hosting'e (`kamilsaim` projesi,
+>   `sinerji` sitesi) deploy edildi.
+>
+> Aşağıdaki plan metni **orijinal haliyle** (tarihi kayıt olarak) korunuyor. Gerçek kod bazı
+> detaylarda (dosya yolları, ufak isimlendirmeler) planla birebir örtüşmeyebilir — kaynak kod
+> her zaman otoritedir.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Sinerji projesini sıfırdan kurmak — Vite tabanlı bir web projesi, Supabase bağlantısı, Google ile

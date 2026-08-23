@@ -1,8 +1,15 @@
 # Sinerji — Manevi Birlik ve Dua Halkası
 
-**Durum:** Tasarım / beyin fırtınası aşaması (taslak)
-**Son güncelleme:** 2026-08-21
-**Klasör:** `E:\ksaim\claude programlar\sinerji`
+**Durum:** Tasarım kesinleşti, kodlama başladı (Plan 1 tamamlandı, canlıda)
+**Son güncelleme:** 2026-08-23
+**Klasör (aktif proje):** `C:\Users\kml\projects\sinerji`
+**GitHub:** https://github.com/kamilsaim/sinerji
+**Canlı (Firebase Hosting, kamilsaim projesi → sinerji sitesi):** https://sinerji.web.app
+
+> ⚠️ Bu dosya eskiden `E:\ksaim\claude programlar\sinerji` (Google Drive senkron klasörü) içindeydi.
+> Drive'ın npm ile uyumsuzluğu (dosya kilitleme hataları) yüzünden proje yerel bir klasöre taşındı ve
+> GitHub'a push edildi. Drive klasörü artık sadece eski tasarım dosyalarının **arşivi**; kod ve güncel
+> dokümanlar buradadır.
 
 ---
 
@@ -132,33 +139,43 @@ Karar: **hatim halkası v2'ye alındı.**
    ölçek, -45°→0° dönüş, 0.5sn, `cubic-bezier(.2,1.5,.4,1)`. "Yumuşak" ve "Belirgin/oyunsu"
    alternatifleri denendi, mevcut değer beğenildi, değişiklik yok.
 
-Tasarım dokümanı kesinleşti → sıradaki adım `writing-plans` ile uygulama planı yazımı.
+Tasarım dokümanı kesinleşti → `writing-plans` ile Plan 1 yazıldı ve uygulandı (bkz. bölüm 8).
 
 ---
 
 ## 6. Dosyalar
 
-- `logo.png` — koyu zemin için parlak logo (dikey, alt yazılı)
+- `logo.png` — koyu zemin için parlak logo (dikey, alt yazılı) — repoda `public/logo.png` olarak da var
 - `deneme.png` — beyaz zemin için sade logo
-- `ilkuretim.jpg` — lacivert→yeşil degrade banner (bu degrade uygulamada **kullanılmayacak**)
-- `.superpowers/brainstorm/<oturum>/content/` — görsel mockup'lar (HTML taslaklar):
-  - `ana-ekran.html` — A / B / C ilk üç ana ekran fikri
-  - `ana-ekran-v2.html` — D / E birleşik fikirler (**D seçildi**)
-  - `canli-zikir.html` — canlı zikir ilk denemesi (lacivert palet, **beğenilmedi**)
-  - `sayma-v2.html` — düzeltilmiş sayma ekranı A/B + alt menü yıldız animasyonu demosu
+- `ilkuretim.jpg` — lacivert→yeşil degrade banner (bu degrade uygulamada **kullanılmayacak**, referans olarak tutuluyor)
+- `docs/brand-guidelines.md` — genişletilmiş marka kimliği rehberi (renk, tipografi, ikon, ses)
+- `assets/design-tokens.json` — brand skill'inden senkronize edilmiş token dosyası
+- Mockup HTML'leri artık `.superpowers/` altında (git'e alınmadı, `.gitignore`'da) — bu klasör
+  senkron değilse `docs/superpowers/plans/2026-08-23-sinerji-plan-1-altyapi-auth-pwa.md` dosyasındaki
+  gerçek koda bakmak yeterli, mockup'lar sadece tasarım aşamasının tarihi kaydı.
 
 ---
 
-## 7. Evden devam etmek için
+## 7. Evden/işten devam etmek için
 
-1. Bu dosyayı oku — **2. bölüm** karar verilenler, **5. bölüm** kaldığımız yer.
-2. Mockup'ları görmek için tarayıcı sunucusunu yeniden başlat (arka planda):
+1. Aktif proje **`C:\Users\kml\projects\sinerji`** içinde — Drive klasörü değil.
+2. Başka bir bilgisayardaysan: `git clone https://github.com/kamilsaim/sinerji.git`, sonra
+   `npm install`, `cp .env.example .env` (gerçek Supabase bilgilerini gir), `npm run dev`.
+3. Bu dosyayı oku — **2. bölüm** tasarım kararları, **8. bölüm** kod durumu ve sıradaki adım.
+4. Canlı sürüm: https://sinerji.web.app (Firebase Hosting, `kamilsaim` projesi altında `sinerji` sitesi).
+   Deploy etmek için: `npm run build && firebase deploy --only hosting:sinerji --project kamilsaim`.
 
-   ```
-   "C:\Users\ksaim\.claude\plugins\cache\claude-plugins-official\superpowers\5.1.0\skills\brainstorming\scripts\start-server.sh" --project-dir "E:\ksaim\claude programlar\sinerji"
-   ```
+---
 
-   Sonra `.superpowers/brainstorm/<yeni-oturum>/state/server-info` dosyasındaki adresi tarayıcıda aç.
-   Sunucu **en son değişen** HTML'i gösterir; eski bir taslağa bakmak için o dosyayı yeni oturumun
-   `content/` klasörüne kopyalamak yeterli.
-3. 5. bölümdeki 2 soruyu cevapla, sonra plan yazımına geç.
+## 8. Kod durumu — nerede kaldık
+
+- **Plan 1 tamamlandı ve canlıda:** proje iskeleti (Vite+Vitest), marka token'ları, Supabase client,
+  Google Auth sarmalayıcısı, session-store, login ekranı (logo + yanıp sönen yıldız + Google butonu),
+  **misafir modu** (giriş yapmadan gezinme, katılım/sayma için giriş gerekir — bkz. 2.6.1), alt menü
+  5 sekme + ikon + yıldız kabarma animasyonu, PWA (manifest + service worker).
+- **Henüz gerçek Supabase projesi bağlanmadı** — `.env` içinde placeholder değerler var, bu yüzden
+  Google girişi şu an "yakında aktif olacak" mesajı veriyor (hata fırlatmak yerine güvenli devre dışı
+  durum — bkz. `isSupabaseConfigured()` / `src/lib/supabase-client.js`).
+- Plan dosyası: `docs/superpowers/plans/2026-08-23-sinerji-plan-1-altyapi-auth-pwa.md`
+- **Sıradaki adım:** gerçek bir Supabase projesi kurup `.env`'i doldurmak, sonra Plan 2 (Akış ekranı +
+  hicri takvim) için yeni bir plan yazıp uygulamak.

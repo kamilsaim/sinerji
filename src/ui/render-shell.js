@@ -9,7 +9,10 @@ export function renderShell(root, state) {
   if (!state.session) {
     root.innerHTML = `
       <div class="login-screen">
-        <img class="login-screen__logo" src="/logo.png" alt="Sinerji" />
+        <div class="login-screen__logo-wrap">
+          <img class="login-screen__logo" src="/logo.png" alt="Sinerji" />
+          <span class="login-screen__logo-twinkle" aria-hidden="true"></span>
+        </div>
         <p class="login-screen__tagline">Aynı anda, aynı niyetle okuyan bir topluluk.</p>
         <button class="login-screen__button" data-action="sign-in-google">
           <svg class="login-screen__google-icon" viewBox="0 0 18 18" width="18" height="18" aria-hidden="true">

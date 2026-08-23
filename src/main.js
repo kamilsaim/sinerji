@@ -9,9 +9,12 @@ const client = getSupabaseClient();
 
 store.subscribe((state) => {
   renderShell(root, state);
-  const signInBtn = root.querySelector('[data-action="sign-in-google"]');
-  if (signInBtn) {
-    signInBtn.addEventListener('click', () => signInWithGoogle(client));
+  root.querySelectorAll('[data-action="sign-in-google"]').forEach((btn) => {
+    btn.addEventListener('click', () => signInWithGoogle(client));
+  });
+  const guestBtn = root.querySelector('[data-action="continue-as-guest"]');
+  if (guestBtn) {
+    guestBtn.addEventListener('click', () => store.setGuest(true));
   }
 });
 

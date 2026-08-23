@@ -158,11 +158,59 @@ body {
   flex-shrink: 0;
 }
 
+.login-screen__guest-link {
+  margin-top: var(--space-sm);
+  border: none;
+  background: none;
+  color: var(--color-text-secondary);
+  font-size: 13px;
+  font-family: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  transition: color .15s ease;
+}
+
+.login-screen__guest-link:hover {
+  color: var(--color-turquoise);
+}
+
 /* --- Uygulama kabuğu / alt sekme çubuğu --- */
 .app-shell {
   flex: 1;
   display: flex;
   flex-direction: column;
+}
+
+.guest-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  padding: 10px var(--space-md);
+  background: rgba(245, 196, 81, .1);
+  border-bottom: 1px solid rgba(245, 196, 81, .3);
+  color: var(--color-gold);
+  font-size: 12.5px;
+}
+
+.guest-banner button {
+  flex-shrink: 0;
+  border: 1px solid var(--color-gold);
+  background: transparent;
+  color: var(--color-gold);
+  border-radius: var(--radius-pill);
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background .15s ease, color .15s ease;
+}
+
+.guest-banner button:hover {
+  background: var(--color-gold);
+  color: var(--color-bg-dark);
 }
 
 #screen-content {

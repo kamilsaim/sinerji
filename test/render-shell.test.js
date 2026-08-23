@@ -25,15 +25,25 @@ describe('renderShell', () => {
     expect(root.textContent).toContain('Misafir olarak devam et');
   });
 
-  it('session varsa 5 sekmeli alt menüyü gösterir', () => {
+  it('session varsa 5 sekmeli alt menüyü, her sekmede bir ikonla, gösterir', () => {
     renderShell(root, { session: { user: { id: 'u1' } }, loading: false, guest: false });
     const tabs = root.querySelectorAll('.tab');
     expect(tabs.length).toBe(5);
+    tabs.forEach((tab) => {
+      expect(tab.querySelector('.tab__ico')).not.toBeNull();
+    });
     expect(root.textContent).toContain('Akış');
     expect(root.textContent).toContain('Halkalar');
     expect(root.textContent).toContain('Zikir');
     expect(root.textContent).toContain('Dua');
     expect(root.textContent).toContain('Günlüğüm');
+  });
+
+  it('ilk sekme (Akış) varsayılan olarak aktif (.on) durumdadır', () => {
+    renderShell(root, { session: { user: { id: 'u1' } }, loading: false, guest: false });
+    const tabs = root.querySelectorAll('.tab');
+    expect(tabs[0].classList.contains('on')).toBe(true);
+    expect(tabs[1].classList.contains('on')).toBe(false);
   });
 
   it('session yok ama guest true ise yine 5 sekmeli kabuğu gösterir', () => {

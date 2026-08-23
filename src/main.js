@@ -16,6 +16,13 @@ store.subscribe((state) => {
   if (guestBtn) {
     guestBtn.addEventListener('click', () => store.setGuest(true));
   }
+  root.querySelectorAll('.tab').forEach((tab) => {
+    tab.addEventListener('click', () => {
+      root.querySelectorAll('.tab').forEach((t) => t.classList.remove('on'));
+      void tab.offsetWidth;
+      tab.classList.add('on');
+    });
+  });
 });
 
 renderShell(root, store.getState());

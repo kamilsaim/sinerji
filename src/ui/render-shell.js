@@ -1,4 +1,10 @@
-const TABS = ['Akış', 'Halkalar', 'Zikir', 'Dua', 'Günlüğüm'];
+const TABS = [
+  { label: 'Akış', icon: '◉' },
+  { label: 'Halkalar', icon: '✦' },
+  { label: 'Zikir', icon: '◍' },
+  { label: 'Dua', icon: '🤲' },
+  { label: 'Günlüğüm', icon: '▤' },
+];
 
 const GOOGLE_ICON = `
   <svg class="login-screen__google-icon" viewBox="0 0 18 18" width="18" height="18" aria-hidden="true">
@@ -39,7 +45,12 @@ function renderAppShell({ guest }) {
       ` : ''}
       <main id="screen-content"></main>
       <nav class="tabbar">
-        ${TABS.map((label, i) => `<div class="tab${i === 0 ? ' on' : ''}">${label}</div>`).join('')}
+        ${TABS.map(({ label, icon }, i) => `
+          <div class="tab${i === 0 ? ' on' : ''}">
+            <span class="tab__ico">${icon}</span>
+            <span class="tab__label">${label}</span>
+          </div>
+        `).join('')}
       </nav>
     </div>
   `;

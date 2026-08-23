@@ -231,8 +231,50 @@ body {
   color: var(--color-text-secondary);
   text-align: center;
   padding: 4px 8px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  position: relative;
+}
+
+.tab__ico {
+  display: block;
+  font-size: 17px;
+  line-height: 1.2;
+}
+
+.tab__label {
+  font-size: 10.5px;
 }
 
 .tab.on {
   color: var(--color-turquoise);
+}
+
+/* Aktif sekmeye tıklanınca yıldız gibi kabarma (spec 2.2.1) */
+.tab.on .tab__ico {
+  animation: tab-icon-bloom var(--star-pop-duration) var(--star-pop-timing);
+}
+
+.tab.on::before {
+  content: '';
+  position: absolute;
+  inset: -6px 0 6px;
+  border-radius: 14px;
+  background: radial-gradient(circle, rgba(62, 230, 207, .28), transparent 70%);
+  animation: tab-halo var(--star-pop-duration) ease-out;
+  z-index: -1;
+}
+
+@keyframes tab-icon-bloom {
+  0% { transform: scale(.7) rotate(-45deg); filter: blur(1px); }
+  55% { transform: scale(1.45) rotate(8deg); }
+  100% { transform: scale(1.12) rotate(0); }
+}
+
+@keyframes tab-halo {
+  0% { opacity: 0; transform: scale(.4); }
+  60% { opacity: 1; }
+  100% { opacity: .55; transform: scale(1); }
 }

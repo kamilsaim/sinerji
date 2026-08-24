@@ -22,8 +22,7 @@ hissi** yaratmak.
 - **Günlüğüm** — kişisel okuma geçmişi, yalnızca kendine açık
 - **Hicri takvim & kandiller** — özel gün ve gecelerde ne okunacağına dair tavsiyeler
 
-Tasarım kararlarının tamamı [`docs/superpowers/specs/2026-08-21-sinerji-tasarim.md`](docs/superpowers/specs/2026-08-21-sinerji-tasarim.md),
-görsel kimlik ise [`docs/brand-guidelines.md`](docs/brand-guidelines.md) dosyasında.
+Tasarım kararları ve görsel kimlik dosyaları yerel projede tutulur (bu repo sadece tanıtım için).
 
 ## Görsel Kimlik
 
@@ -57,5 +56,12 @@ npm run preview          # build'i yerelde önizle
 
 ## Durum
 
-🚧 Aktif geliştirme aşamasında. Şu an tamamlanan: proje iskeleti, Google Auth akışı, misafir modu,
-PWA temeli. Sıradaki: akış ekranı, halka/dua sistemi, canlı zikir sayacı, günlük ve bildirimler.
+🟢 Canlı: [sinerji.web.app](https://sinerji.web.app)
+
+Tamamlanan: proje iskeleti, Google Auth akışı, misafir modu, PWA temeli, Akış ekranı (hicri takvim +
+kandil şeridi + gerçek Supabase verisi), Halkalar (oluşturma + listeleme), Zikir (sayma + 2sn toplu
+gönderim + Supabase Realtime ile canlı güncelleme), Dua istekleri (oluşturma + tek dokunuş katılım),
+Günlüğüm (kişisel okuma özeti).
+
+Sıradaki: çevrimdışı biriktirme/senkron, gerçek zikir/dua metin içerikleri (Arapça + okunuş + meal),
+bildirimler, hatim/cüz paylaşımı (v2).

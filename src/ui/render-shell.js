@@ -1,6 +1,9 @@
 // src/ui/render-shell.js
 import { renderFeedScreen } from './screens/feed-screen.js';
-import { renderPlaceholderScreen } from './screens/placeholder-screen.js';
+import { renderRingsScreen } from './screens/rings-screen.js';
+import { renderZikirScreen } from './screens/zikir-screen.js';
+import { renderDuaScreen } from './screens/dua-screen.js';
+import { renderJournalScreen } from './screens/journal-screen.js';
 
 const TABS = [
   { label: 'Akış', icon: '◉' },
@@ -12,10 +15,10 @@ const TABS = [
 
 const SCREEN_RENDERERS = {
   Akış: renderFeedScreen,
-  Halkalar: (container) => renderPlaceholderScreen(container, 'Halkalar'),
-  Zikir: (container) => renderPlaceholderScreen(container, 'Zikir'),
-  Dua: (container) => renderPlaceholderScreen(container, 'Dua'),
-  Günlüğüm: (container) => renderPlaceholderScreen(container, 'Günlüğüm'),
+  Halkalar: renderRingsScreen,
+  Zikir: renderZikirScreen,
+  Dua: renderDuaScreen,
+  Günlüğüm: renderJournalScreen,
 };
 
 const GOOGLE_ICON = `
@@ -68,34 +71,44 @@ function renderAppShell({ guest }) {
   `;
 }
 
-function wireAppShell(root, state) {
+function wireAppShell(root, state, client) {
   const content = root.querySelector('#screen-content');
   const tabs = root.querySelectorAll('.tab');
+  let selectedRingId = null;
+
+  function onSelectRing(ringId) {
+    selectedRingId = ringId;
+    return activate('Zikir');
+  }
 
   function activate(label) {
+    if (typeof content._zikirCleanup === 'function') {
+      content._zikirCleanup();
+      content._zikirCleanup = null;
+    }
     tabs.forEach((tab) => tab.classList.toggle('on', tab.dataset.label === label));
     const renderScreen = SCREEN_RENDERERS[label] ?? renderFeedScreen;
-    renderScreen(content, state);
+    return renderScreen(content, { state, client, selectedRingId, onSelectRing });
   }
 
   tabs.forEach((tab) => {
     tab.addEventListener('click', () => activate(tab.dataset.label));
   });
 
-  activate(TABS[0].label);
+  return activate(TABS[0].label);
 }
 
-export function renderShell(root, state) {
+export function renderShell(root, state, client) {
   if (state.loading) {
     root.innerHTML = '<div class="loading-screen"><p class="loading">Yükleniyor…</p></div>';
-    return;
+    return undefined;
   }
 
   if (!state.session && !state.guest) {
     root.innerHTML = renderLoginScreen();
-    return;
+    return undefined;
   }
 
   root.innerHTML = renderAppShell({ guest: state.guest });
-  wireAppShell(root, state);
+  return wireAppShell(root, state, client);
 }

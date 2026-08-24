@@ -19,7 +19,7 @@ function showComingSoonNotice(button) {
 }
 
 store.subscribe((state) => {
-  renderShell(root, state);
+  renderShell(root, state, client);
 
   root.querySelectorAll('[data-action="sign-in-google"]').forEach((btn) => {
     if (supabaseReady) {
@@ -35,7 +35,7 @@ store.subscribe((state) => {
   }
 });
 
-renderShell(root, store.getState());
+renderShell(root, store.getState(), client);
 
 if (supabaseReady) {
   getCurrentSession(client).then((session) => {

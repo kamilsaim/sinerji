@@ -1,5 +1,7 @@
 {
-  "projects": {},
+  "projects": {
+    "default": "kamilsaim"
+  },
   "targets": {
     "kamilsaim": {
       "hosting": {

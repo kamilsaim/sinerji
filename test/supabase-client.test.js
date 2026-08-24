@@ -1,6 +1,33 @@
 // @vitest-environment node
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 
+describe('isSupabaseConfigured', () => {
+  beforeEach(() => {
+    vi.resetModules();
+  });
+
+  it('placeholder .env.example değerleriyle false döner', async () => {
+    vi.stubEnv('VITE_SUPABASE_URL', 'https://xxxx.supabase.co');
+    vi.stubEnv('VITE_SUPABASE_ANON_KEY', 'xxxx');
+    const { isSupabaseConfigured } = await import('../src/lib/supabase-client.js');
+    expect(isSupabaseConfigured()).toBe(false);
+  });
+
+  it('env değişkenleri boşsa false döner', async () => {
+    vi.stubEnv('VITE_SUPABASE_URL', '');
+    vi.stubEnv('VITE_SUPABASE_ANON_KEY', '');
+    const { isSupabaseConfigured } = await import('../src/lib/supabase-client.js');
+    expect(isSupabaseConfigured()).toBe(false);
+  });
+
+  it('gerçek görünen değerlerle true döner', async () => {
+    vi.stubEnv('VITE_SUPABASE_URL', 'https://abcdefgh.supabase.co');
+    vi.stubEnv('VITE_SUPABASE_ANON_KEY', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.real-looking-key');
+    const { isSupabaseConfigured } = await import('../src/lib/supabase-client.js');
+    expect(isSupabaseConfigured()).toBe(true);
+  });
+});
+
 describe('getSupabaseClient', () => {
   beforeEach(() => {
     vi.resetModules();

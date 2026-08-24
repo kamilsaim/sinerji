@@ -154,6 +154,13 @@ body {
   outline-offset: 3px;
 }
 
+.login-screen__button:disabled {
+  cursor: default;
+  opacity: .85;
+  transform: none;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .28);
+}
+
 .login-screen__google-icon {
   flex-shrink: 0;
 }

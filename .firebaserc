@@ -1,0 +1,13 @@
+{
+  "projects": {},
+  "targets": {
+    "kamilsaim": {
+      "hosting": {
+        "sinerji": [
+          "sinerji"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

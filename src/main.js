@@ -1,21 +1,39 @@
-import { getSupabaseClient } from './lib/supabase-client.js';
+import { getSupabaseClient, isSupabaseConfigured } from './lib/supabase-client.js';
 import { signInWithGoogle, signOut, getCurrentSession, onAuthStateChange } from './lib/auth.js';
 import { createSessionStore } from './lib/session-store.js';
 import { renderShell } from './ui/render-shell.js';
 
 const root = document.getElementById('app');
 const store = createSessionStore();
-const client = getSupabaseClient();
+const supabaseReady = isSupabaseConfigured();
+const client = supabaseReady ? getSupabaseClient() : null;
+
+function showComingSoonNotice(button) {
+  const original = button.textContent;
+  button.textContent = 'Google girişi yakında aktif olacak';
+  button.disabled = true;
+  setTimeout(() => {
+    button.textContent = original;
+    button.disabled = false;
+  }, 2500);
+}
 
 store.subscribe((state) => {
   renderShell(root, state);
+
   root.querySelectorAll('[data-action="sign-in-google"]').forEach((btn) => {
-    btn.addEventListener('click', () => signInWithGoogle(client));
+    if (supabaseReady) {
+      btn.addEventListener('click', () => signInWithGoogle(client));
+    } else {
+      btn.addEventListener('click', () => showComingSoonNotice(btn));
+    }
   });
+
   const guestBtn = root.querySelector('[data-action="continue-as-guest"]');
   if (guestBtn) {
     guestBtn.addEventListener('click', () => store.setGuest(true));
   }
+
   root.querySelectorAll('.tab').forEach((tab) => {
     tab.addEventListener('click', () => {
       root.querySelectorAll('.tab').forEach((t) => t.classList.remove('on'));
@@ -27,19 +45,23 @@ store.subscribe((state) => {
 
 renderShell(root, store.getState());
 
-getCurrentSession(client).then((session) => {
-  store.setSession(session);
-});
+if (supabaseReady) {
+  getCurrentSession(client).then((session) => {
+    store.setSession(session);
+  });
 
-onAuthStateChange(client, (session) => {
-  store.setSession(session);
-});
+  onAuthStateChange(client, (session) => {
+    store.setSession(session);
+  });
 
-window.__sinerjiSignOut = () => signOut(client);
+  window.__sinerjiSignOut = () => signOut(client);
+} else {
+  store.setSession(null);
+}
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/src/sw.js', { type: 'module' }).catch((err) => {
+    navigator.serviceWorker.register('/sw.js').catch((err) => {
       console.error('Service worker kaydı başarısız:', err);
     });
   });

@@ -285,3 +285,135 @@ body {
   60% { opacity: 1; }
   100% { opacity: .55; transform: scale(1); }
 }
+
+/* --- Akış ekranı --- */
+.feed-screen {
+  padding: var(--space-md) var(--space-md) var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.kandil-strip {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 12.5px;
+  color: var(--color-text-secondary);
+}
+
+.kandil-strip__note {
+  color: var(--color-gold);
+  font-weight: 600;
+}
+
+.feed-screen__greeting {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.intention-card {
+  padding: var(--space-md);
+  border-radius: var(--radius-card);
+  background: var(--color-card-bg);
+  border: 1px solid rgba(245, 196, 81, .35);
+}
+
+.intention-card__label {
+  display: block;
+  color: var(--color-gold);
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: var(--space-xs);
+}
+
+.intention-card__text {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.feed-screen__section-title {
+  margin: 0;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+}
+
+.ring-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.ring-card {
+  padding: var(--space-md);
+  border-radius: var(--radius-card);
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+}
+
+.ring-card__type {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--color-turquoise);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+.ring-card__title {
+  margin: var(--space-xs) 0 var(--space-sm);
+  font-size: 15px;
+}
+
+.ring-card__progress {
+  height: 4px;
+  border-radius: var(--radius-pill);
+  background: var(--color-divider);
+  overflow: hidden;
+  margin-bottom: var(--space-sm);
+}
+
+.ring-card__progress-bar {
+  height: 100%;
+  background: var(--color-turquoise);
+}
+
+.ring-card__meta {
+  display: flex;
+  gap: var(--space-md);
+  font-size: 12.5px;
+  color: var(--color-text-secondary);
+}
+
+.ring-card__total {
+  color: var(--color-turquoise);
+  font-weight: 600;
+}
+
+/* --- Placeholder ekran (Halkalar/Zikir/Dua/Günlüğüm — henüz içerik yok) --- */
+.placeholder-screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: var(--space-2xl) var(--space-lg);
+  text-align: center;
+  color: var(--color-text-secondary);
+}
+
+.placeholder-screen__label {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.placeholder-screen__text {
+  margin: 0;
+  font-size: 13px;
+}

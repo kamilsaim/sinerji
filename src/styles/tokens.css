@@ -393,27 +393,240 @@ body {
   font-weight: 600;
 }
 
-/* --- Placeholder ekran (Halkalar/Zikir/Dua/Günlüğüm — henüz içerik yok) --- */
-.placeholder-screen {
-  flex: 1;
+/* --- Ortak: yükleniyor / boş durum --- */
+.screen-loading,
+.ring-list__empty,
+.dua-list__empty {
+  padding: var(--space-lg);
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-size: 13px;
+}
+
+/* --- Halkalar / Dua ortak form --- */
+.ring-form,
+.dua-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  margin: 0 var(--space-md) var(--space-md);
+  border-radius: var(--radius-card);
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+}
+
+.ring-form input,
+.ring-form select,
+.dua-form input {
+  padding: 10px 12px;
+  border-radius: var(--radius-button);
+  border: 1px solid var(--color-divider);
+  background: rgba(255, 255, 255, .04);
+  color: var(--color-text-primary);
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.ring-form__submit,
+.dua-form__submit {
+  padding: 10px 16px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--color-turquoise);
+  color: var(--color-bg-dark);
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.ring-form__error,
+.dua-form__error {
+  color: var(--color-error);
+  font-size: 12.5px;
+  margin: 0;
+}
+
+.rings-screen__title,
+.dua-screen__title {
+  margin: var(--space-md);
+  font-size: 18px;
+}
+
+.rings-screen__guest-note,
+.dua-screen__guest-note,
+.journal-screen__guest-note {
+  margin: var(--space-md);
+  color: var(--color-text-secondary);
+  font-size: 13px;
+}
+
+.rings-screen .ring-list,
+.dua-screen .dua-list {
+  padding: 0 var(--space-md) var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* --- Dua kartı --- */
+.dua-card {
+  padding: var(--space-md);
+  border-radius: var(--radius-card);
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  display: flex;
+  flex-direction: column;
   gap: var(--space-xs);
-  padding: var(--space-2xl) var(--space-lg);
-  text-align: center;
+}
+
+.dua-card__title {
+  margin: 0;
+  font-size: 15px;
+}
+
+.dua-card__participants {
+  font-size: 12.5px;
   color: var(--color-text-secondary);
 }
 
-.placeholder-screen__label {
-  margin: 0;
-  font-size: 16px;
+.dua-card__button {
+  align-self: flex-start;
+  margin-top: var(--space-xs);
+  padding: 8px 16px;
+  border: 1px solid var(--color-gold);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--color-gold);
+  font-family: inherit;
   font-weight: 600;
-  color: var(--color-text-primary);
+  cursor: pointer;
 }
 
-.placeholder-screen__text {
+.dua-card__button:disabled {
+  opacity: .6;
+  cursor: default;
+}
+
+/* --- Zikir ekranı --- */
+.zikir-screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-md);
+  gap: var(--space-md);
+}
+
+.zikir-screen__title {
   margin: 0;
+  font-size: 17px;
+  text-align: center;
+}
+
+.zikir-screen__badge {
+  text-align: center;
+  font-size: 12.5px;
+  color: var(--color-turquoise);
+}
+
+.zikir-screen__text {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-md);
+  border-radius: var(--radius-card);
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  font-size: 16px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.zikir-screen__footer {
+  display: flex;
+  justify-content: space-around;
+  padding: var(--space-sm) 0;
+  border-top: 1px solid var(--color-divider);
+}
+
+.zikir-screen__mine,
+.zikir-screen__ring-total {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.zikir-screen__mine-count,
+.zikir-screen__ring-total-count {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-turquoise);
+}
+
+.zikir-screen__label {
+  font-size: 11px;
+  color: var(--color-text-tertiary);
+}
+
+.zikir-screen__button {
+  align-self: center;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  border: none;
+  background: var(--color-turquoise);
+  color: var(--color-bg-dark);
+  font-size: 15px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  box-shadow: 0 8px 26px rgba(62, 230, 207, .35);
+}
+
+.zikir-screen__empty,
+.zikir-screen__error,
+.zikir-screen__guest-note {
+  text-align: center;
+  color: var(--color-text-secondary);
+  padding: var(--space-lg);
+  font-size: 13px;
+}
+
+/* --- Günlüğüm ekranı --- */
+.journal-screen {
+  padding: var(--space-md);
+}
+
+.journal-screen__summary {
+  margin: 0 0 var(--space-md);
+  font-size: 15px;
+  color: var(--color-text-secondary);
+}
+
+.journal-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.journal-item {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-card);
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  font-size: 14px;
+}
+
+.journal-item__total {
+  color: var(--color-turquoise);
+  font-weight: 600;
+}
+
+.journal-screen__empty,
+.journal-screen__error {
+  text-align: center;
+  color: var(--color-text-secondary);
+  padding: var(--space-lg);
   font-size: 13px;
 }

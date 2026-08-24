@@ -24,18 +24,18 @@ describe('getTodayInfo', () => {
     expect(info.specialNote).toBe('Akşam: Mevlid Kandili');
   });
 
-  it('Miraç Kandili gününü doğru tespit eder (2026-01-15)', () => {
-    const info = getTodayInfo(new Date(2026, 0, 15));
+  it('Miraç Kandili gününü doğru tespit eder (2026-01-16)', () => {
+    const info = getTodayInfo(new Date(2026, 0, 16));
     expect(info.specialNote).toBe('Akşam: Miraç Kandili');
   });
 
-  it('Berat Kandili gününü doğru tespit eder (2026-02-02)', () => {
-    const info = getTodayInfo(new Date(2026, 1, 2));
+  it('Berat Kandili gününü doğru tespit eder (2026-02-03)', () => {
+    const info = getTodayInfo(new Date(2026, 1, 3));
     expect(info.specialNote).toBe('Akşam: Berat Kandili');
   });
 
-  it("Kadir Gecesi'ni doğru tespit eder (2026-03-15)", () => {
-    const info = getTodayInfo(new Date(2026, 2, 15));
+  it("Kadir Gecesi'ni doğru tespit eder (2026-03-16)", () => {
+    const info = getTodayInfo(new Date(2026, 2, 16));
     expect(info.specialNote).toBe('Kadir Gecesi');
   });
 

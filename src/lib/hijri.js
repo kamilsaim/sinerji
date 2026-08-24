@@ -11,9 +11,9 @@ const WEEKDAYS = ['Pazar', 'Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cum
 // gecesi) değişken olduğu için bu tabloda YOK — bkz. plan dokümanındaki kapsam notu.
 const SPECIAL_DAYS = [
   { month: 3, day: 12, note: 'Akşam: Mevlid Kandili' },
-  { month: 7, day: 26, note: 'Akşam: Miraç Kandili' },
-  { month: 8, day: 14, note: 'Akşam: Berat Kandili' },
-  { month: 9, day: 26, note: 'Kadir Gecesi' },
+  { month: 7, day: 27, note: 'Akşam: Miraç Kandili' },
+  { month: 8, day: 15, note: 'Akşam: Berat Kandili' },
+  { month: 9, day: 27, note: 'Kadir Gecesi' },
   { month: 10, day: 1, note: 'Ramazan Bayramı' },
   { month: 12, day: 10, note: 'Kurban Bayramı' },
 ];

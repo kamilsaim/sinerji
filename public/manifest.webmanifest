@@ -1,0 +1,13 @@
+{
+  "name": "Sinerji",
+  "short_name": "Sinerji",
+  "description": "Aynı anda, aynı niyetle okuyan bir topluluk.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#08222b",
+  "theme_color": "#08222b",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

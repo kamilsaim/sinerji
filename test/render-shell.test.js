@@ -57,4 +57,32 @@ describe('renderShell', () => {
     expect(root.querySelector('[data-action="sign-in-google"]')).not.toBeNull();
     expect(root.textContent).toContain('Misafir modundasın');
   });
+
+  it('ilk render sonrası #screen-content içinde Akış ekranı görünür', () => {
+    renderShell(root, { session: { user: { id: 'u1' } }, loading: false, guest: false });
+    expect(root.querySelector('#screen-content .kandil-strip')).not.toBeNull();
+  });
+
+  it('Halkalar sekmesine tıklanınca screen-content placeholder ekranına geçer ve sekme aktifleşir', () => {
+    renderShell(root, { session: { user: { id: 'u1' } }, loading: false, guest: false });
+    const tabs = root.querySelectorAll('.tab');
+
+    tabs[1].dispatchEvent(new Event('click', { bubbles: true }));
+
+    expect(root.querySelector('#screen-content .placeholder-screen')).not.toBeNull();
+    expect(root.querySelector('#screen-content').textContent).toContain('Halkalar');
+    expect(tabs[1].classList.contains('on')).toBe(true);
+    expect(tabs[0].classList.contains('on')).toBe(false);
+  });
+
+  it('Akış sekmesine geri tıklanınca yeniden Akış ekranı gösterilir', () => {
+    renderShell(root, { session: { user: { id: 'u1' } }, loading: false, guest: false });
+    const tabs = root.querySelectorAll('.tab');
+
+    tabs[1].dispatchEvent(new Event('click', { bubbles: true }));
+    tabs[0].dispatchEvent(new Event('click', { bubbles: true }));
+
+    expect(root.querySelector('#screen-content .kandil-strip')).not.toBeNull();
+    expect(tabs[0].classList.contains('on')).toBe(true);
+  });
 });

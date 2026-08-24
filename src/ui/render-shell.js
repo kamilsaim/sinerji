@@ -1,3 +1,7 @@
+// src/ui/render-shell.js
+import { renderFeedScreen } from './screens/feed-screen.js';
+import { renderPlaceholderScreen } from './screens/placeholder-screen.js';
+
 const TABS = [
   { label: 'Akış', icon: '◉' },
   { label: 'Halkalar', icon: '✦' },
@@ -5,6 +9,14 @@ const TABS = [
   { label: 'Dua', icon: '🤲' },
   { label: 'Günlüğüm', icon: '▤' },
 ];
+
+const SCREEN_RENDERERS = {
+  Akış: renderFeedScreen,
+  Halkalar: (container) => renderPlaceholderScreen(container, 'Halkalar'),
+  Zikir: (container) => renderPlaceholderScreen(container, 'Zikir'),
+  Dua: (container) => renderPlaceholderScreen(container, 'Dua'),
+  Günlüğüm: (container) => renderPlaceholderScreen(container, 'Günlüğüm'),
+};
 
 const GOOGLE_ICON = `
   <svg class="login-screen__google-icon" viewBox="0 0 18 18" width="18" height="18" aria-hidden="true">
@@ -45,8 +57,8 @@ function renderAppShell({ guest }) {
       ` : ''}
       <main id="screen-content"></main>
       <nav class="tabbar">
-        ${TABS.map(({ label, icon }, i) => `
-          <div class="tab${i === 0 ? ' on' : ''}">
+        ${TABS.map(({ label, icon }) => `
+          <div class="tab" data-label="${label}">
             <span class="tab__ico">${icon}</span>
             <span class="tab__label">${label}</span>
           </div>
@@ -54,6 +66,23 @@ function renderAppShell({ guest }) {
       </nav>
     </div>
   `;
+}
+
+function wireAppShell(root, state) {
+  const content = root.querySelector('#screen-content');
+  const tabs = root.querySelectorAll('.tab');
+
+  function activate(label) {
+    tabs.forEach((tab) => tab.classList.toggle('on', tab.dataset.label === label));
+    const renderScreen = SCREEN_RENDERERS[label] ?? renderFeedScreen;
+    renderScreen(content, state);
+  }
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => activate(tab.dataset.label));
+  });
+
+  activate(TABS[0].label);
 }
 
 export function renderShell(root, state) {
@@ -68,4 +97,5 @@ export function renderShell(root, state) {
   }
 
   root.innerHTML = renderAppShell({ guest: state.guest });
+  wireAppShell(root, state);
 }

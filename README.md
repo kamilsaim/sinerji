@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="https://sinerji.web.app"><img alt="Canlı" src="https://img.shields.io/badge/canlı-sinerji.web.app-3ee6cf?style=flat-square"></a>
-  <img alt="Durum" src="https://img.shields.io/badge/durum-geliştiriliyor-f5c451?style=flat-square">
+  <img alt="Sürüm" src="https://img.shields.io/badge/sürüm-1.0.7-f5c451?style=flat-square">
   <img alt="Ücretsiz" src="https://img.shields.io/badge/ücretsiz-reklamsız-08222b?style=flat-square">
 </p>
 

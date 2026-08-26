@@ -1,9 +1,7 @@
 <p align="center">
-  <img src="logo.png" alt="Sinerji" width="200" />
+  <img src="screenshots/banner.png" alt="Sinerji" width="420" />
 </p>
 
-<h1 align="center">Sinerji</h1>
-<p align="center"><b>Manevi Birlik ve Dua Halkası</b></p>
 <p align="center">Aynı anda, aynı niyetle okuyan bir topluluk.</p>
 
 <p align="center">
@@ -47,6 +45,13 @@ niyetle okuyan bir topluluk hissi yaratır.
 - 📿 Kişisel günlük vird — süre hedefli veya süresiz, geçmiş ve seri takibi
 - 📱 PWA — ana ekrana eklenir, çevrimdışı sayaç kuyruğu, kulaklık/ses tuşuyla sayma (Cepte Mod)
 - 🛡️ Otomatik risk taraması + moderasyon — kötüye kullanım insan onayından önce işaretlenir
+
+## Ekran görüntüleri
+
+<p align="center">
+  <img src="screenshots/kurulum.png" width="200" alt="Karşılama ve kurulum ekranı" />
+  <img src="screenshots/kandiller.png" width="200" alt="Mübarek geceler ekranı" />
+</p>
 
 ## Teknoloji
 

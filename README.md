@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="https://sinerji.web.app"><img alt="Canlı" src="https://img.shields.io/badge/canlı-sinerji.web.app-3ee6cf?style=flat-square"></a>
-  <img alt="Sürüm" src="https://img.shields.io/badge/sürüm-1.0.7-f5c451?style=flat-square">
+  <img alt="Sürüm" src="https://img.shields.io/badge/sürüm-1.0.32-f5c451?style=flat-square">
   <img alt="Ücretsiz" src="https://img.shields.io/badge/ücretsiz-reklamsız-08222b?style=flat-square">
 </p>
 
@@ -43,21 +43,27 @@ niyetle okuyan bir topluluk hissi yaratır.
 - 🕋 Ortak zikir/salavat/tesbihat halkaları — açık, linkle veya grup içi
 - 📖 Hatim halkaları — cüz/sayfa paylaşımlı, otomatik havuz yönetimi
 - 🤲 Dua istekleri — tek dokunuşla "âmin", ya da sayılı okumaya dönüşen istekler
-- 🌙 2026 Diyanet dinî gün/gece takvimi + mübarek gecelerde ne okunacağına dair program
+- 🌙 2026-2027 Diyanet dinî gün/gece takvimi + mübarek gecelerde ne okunacağına dair program
 - 📿 Kişisel günlük vird — süre hedefli veya süresiz, geçmiş ve seri takibi
+- 🔔 Anlık bildirimler — halka/dua tamamlandığında, onay bekleyen içerikte gerçek OS bildirimi
+- 🗓️ Haftalık zikir programı — her gün için önerilen zikirler, ana ekrandan tek dokunuşla virde ekleme
+- 🖼️ Paylaşım kartı — tamamlanan halkanın özetini görsel kart olarak PNG'ye çevirip paylaşma
 - 📱 PWA — ana ekrana eklenir, çevrimdışı sayaç kuyruğu, kulaklık/ses tuşuyla sayma (Cepte Mod)
 - 🛡️ Otomatik risk taraması + moderasyon — kötüye kullanım insan onayından önce işaretlenir
+- 🗑️ Hesabını dilediğin zaman tamamen silme — katıldığın halkalar, verdiğin katkılar korunur
 
 ## Teknoloji
 
 - **Vite 7 + React 19 + TypeScript** — react-router-dom 7 ile tek sayfa uygulama
 - **Supabase** — Postgres, Auth (yalnızca Google), Row Level Security, pg_cron zamanlanmış işler
 - **Firebase Hosting** — statik PWA dağıtımı
-- **Service Worker + Web App Manifest** — kurulabilir PWA deneyimi
+- **Service Worker + Web Push + Web App Manifest** — kurulabilir, bildirim gönderebilen PWA deneyimi
+- **Android** — Trusted Web Activity (TWA) paketleme, Play Console kapalı test aşamasında
 
 ## Durum
 
 🟢 Canlı: **[sinerji.web.app](https://sinerji.web.app)**
+🧪 Android: Play Console'da kapalı test aşamasında
 
 Bu depo yalnızca tanıtım amaçlıdır; kaynak kod ve altyapı yapılandırması ayrı, özel tutulur.
 

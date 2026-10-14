@@ -9,7 +9,7 @@
 <p align="center">
   <a href="https://sinerji.web.app"><img alt="Canlı" src="https://img.shields.io/badge/canlı-sinerji.web.app-3ee6cf?style=flat-square"></a>
   <a href="https://play.google.com/store/apps/details?id=app.web.sinerji"><img alt="Google Play" src="https://img.shields.io/badge/Google_Play-indir-34a853?style=flat-square&logo=googleplay&logoColor=white"></a>
-  <img alt="Sürüm" src="https://img.shields.io/badge/sürüm-1.2.8-f5c451?style=flat-square">
+  <img alt="Sürüm" src="https://img.shields.io/badge/sürüm-1.2.9-f5c451?style=flat-square">
   <img alt="Ücretsiz" src="https://img.shields.io/badge/ücretsiz-reklamsız-08222b?style=flat-square">
 </p>
 
@@ -61,6 +61,8 @@ niyetle okuyan bir topluluk hissi yaratır.
   geçirerek ya da cepteyken sayma
 - 📳 Dokunuşta titreşim — her 33'te belirgin vuruş, hedef dolunca "tamam" titreşimi;
   Ayarlar'dan kapatılabilir
+- 🔉 Android'de ses tuşuyla sayma ve bildirim çubuğundan / kilit ekranından "+1"; yakınlık
+  sensörüyle cepteyken sayma (Android 1.2 sürümüyle)
 - 🍎 Google veya Apple ile giriş
 - 🛡️ Otomatik risk taraması + moderasyon — kötüye kullanım insan onayından önce işaretlenir
 - 🔒 Davet linkleri girişsiz kullanıcıya içerik göstermez — önce giriş, sonra içerik
@@ -74,14 +76,15 @@ niyetle okuyan bir topluluk hissi yaratır.
 - **Google Gemini API** — ücretsiz katman, kendi yazılan zikirler için Arapça/anlam önerisi
 - **Firebase Hosting** — statik PWA dağıtımı
 - **Service Worker + Web Push + Web App Manifest** — kurulabilir, bildirim gönderebilen PWA deneyimi
-- **Android** — Trusted Web Activity (TWA) paketleme, Google Play'de yayında
+- **Android** — Capacitor kabuğu + yerel Java eklentisi (ses tuşu, bildirimde sayaç, yakınlık
+  sensörü), Firebase Cloud Messaging bildirimleri; Google Play'de yayında (1.1'e kadar TWA idi)
 - **iOS** — Capacitor kabuğu + yerel Swift eklentisi (Canlı Etkinlik / WidgetKit, yakınlık
   sensörü), APNs bildirimleri; GitHub Actions + fastlane ile bulutta derlenip TestFlight'a yüklenir
 
 ## Durum
 
 🟢 Canlı: **[sinerji.web.app](https://sinerji.web.app)**
-🟢 Android: **[Google Play'de yayında](https://play.google.com/store/apps/details?id=app.web.sinerji)**
+🟢 Android: **[Google Play'de yayında](https://play.google.com/store/apps/details?id=app.web.sinerji)** — "Sinerji: Zikir ve Dua Halkası"; 1.2 (Capacitor) incelemede
 🧪 iPhone: TestFlight'ta test aşamasında, App Store'a hazırlanıyor
 
 Bu depo yalnızca tanıtım amaçlıdır; kaynak kod ve altyapı yapılandırması ayrı, özel tutulur.

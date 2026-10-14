@@ -8,7 +8,8 @@
 
 <p align="center">
   <a href="https://sinerji.web.app"><img alt="Canlı" src="https://img.shields.io/badge/canlı-sinerji.web.app-3ee6cf?style=flat-square"></a>
-  <img alt="Sürüm" src="https://img.shields.io/badge/sürüm-1.1.1-f5c451?style=flat-square">
+  <a href="https://play.google.com/store/apps/details?id=app.web.sinerji"><img alt="Google Play" src="https://img.shields.io/badge/Google_Play-indir-34a853?style=flat-square&logo=googleplay&logoColor=white"></a>
+  <img alt="Sürüm" src="https://img.shields.io/badge/sürüm-1.2.8-f5c451?style=flat-square">
   <img alt="Ücretsiz" src="https://img.shields.io/badge/ücretsiz-reklamsız-08222b?style=flat-square">
 </p>
 
@@ -54,7 +55,13 @@ niyetle okuyan bir topluluk hissi yaratır.
 - 🔔 Anlık bildirimler — halka/dua tamamlandığında, onay bekleyen içerikte gerçek OS bildirimi
 - 🗓️ Haftalık zikir programı — her gün için önerilen zikirler, ana ekrandan tek dokunuşla virde ekleme
 - 🖼️ Paylaşım kartı — tamamlanan halkanın özetini görsel kart olarak PNG'ye çevirip paylaşma
-- 📱 PWA — ana ekrana eklenir, çevrimdışı sayaç kuyruğu, kulaklık/ses tuşuyla sayma (Cepte Mod)
+- 📱 PWA — ana ekrana eklenir, çevrimdışı sayaç kuyruğu, kulaklık düğmesiyle sayma (Cepte Mod)
+- 🔒 iPhone'da kilit ekranından sayma — kilit ekranı ve Dynamic Island'da "+1" düğmesi,
+  telefonun kilidini açmadan zikir çekilir; yakınlık sensörüyle elini telefonun üstünden
+  geçirerek ya da cepteyken sayma
+- 📳 Dokunuşta titreşim — her 33'te belirgin vuruş, hedef dolunca "tamam" titreşimi;
+  Ayarlar'dan kapatılabilir
+- 🍎 Google veya Apple ile giriş
 - 🛡️ Otomatik risk taraması + moderasyon — kötüye kullanım insan onayından önce işaretlenir
 - 🔒 Davet linkleri girişsiz kullanıcıya içerik göstermez — önce giriş, sonra içerik
 - 🗑️ Hesabını dilediğin zaman tamamen silme — katıldığın halkalar, verdiğin katkılar korunur
@@ -62,17 +69,20 @@ niyetle okuyan bir topluluk hissi yaratır.
 ## Teknoloji
 
 - **Vite 7 + React 19 + TypeScript** — react-router-dom 7 ile tek sayfa uygulama
-- **Supabase** — Postgres, Auth (yalnızca Google), Row Level Security, pg_cron zamanlanmış işler,
+- **Supabase** — Postgres, Auth (Google + Apple ile Giriş), Row Level Security, pg_cron zamanlanmış işler,
   Edge Functions
 - **Google Gemini API** — ücretsiz katman, kendi yazılan zikirler için Arapça/anlam önerisi
 - **Firebase Hosting** — statik PWA dağıtımı
 - **Service Worker + Web Push + Web App Manifest** — kurulabilir, bildirim gönderebilen PWA deneyimi
-- **Android** — Trusted Web Activity (TWA) paketleme, Play Console kapalı test aşamasında
+- **Android** — Trusted Web Activity (TWA) paketleme, Google Play'de yayında
+- **iOS** — Capacitor kabuğu + yerel Swift eklentisi (Canlı Etkinlik / WidgetKit, yakınlık
+  sensörü), APNs bildirimleri; GitHub Actions + fastlane ile bulutta derlenip TestFlight'a yüklenir
 
 ## Durum
 
 🟢 Canlı: **[sinerji.web.app](https://sinerji.web.app)**
-🧪 Android: Play Console'da kapalı test aşamasında
+🟢 Android: **[Google Play'de yayında](https://play.google.com/store/apps/details?id=app.web.sinerji)**
+🧪 iPhone: TestFlight'ta test aşamasında, App Store'a hazırlanıyor
 
 Bu depo yalnızca tanıtım amaçlıdır; kaynak kod ve altyapı yapılandırması ayrı, özel tutulur.
 

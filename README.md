@@ -9,7 +9,7 @@
 <p align="center">
   <a href="https://sinerji.web.app"><img alt="Canlı" src="https://img.shields.io/badge/canlı-sinerji.web.app-3ee6cf?style=flat-square"></a>
   <a href="https://play.google.com/store/apps/details?id=app.web.sinerji"><img alt="Google Play" src="https://img.shields.io/badge/Google_Play-indir-34a853?style=flat-square&logo=googleplay&logoColor=white"></a>
-  <img alt="Sürüm" src="https://img.shields.io/badge/sürüm-1.2.9-f5c451?style=flat-square">
+  <img alt="Sürüm" src="https://img.shields.io/badge/sürüm-1.2.11-f5c451?style=flat-square">
   <img alt="Ücretsiz" src="https://img.shields.io/badge/ücretsiz-reklamsız-08222b?style=flat-square">
 </p>
 
@@ -62,7 +62,7 @@ niyetle okuyan bir topluluk hissi yaratır.
 - 📳 Dokunuşta titreşim — her 33'te belirgin vuruş, hedef dolunca "tamam" titreşimi;
   Ayarlar'dan kapatılabilir
 - 🔉 Android'de ses tuşuyla sayma ve bildirim çubuğundan / kilit ekranından "+1"; yakınlık
-  sensörüyle cepteyken sayma (Android 1.2 sürümüyle)
+  sensörüyle cepteyken sayma; bildirim kartında zikrin Arapçası ve büyük +1
 - 🍎 Google veya Apple ile giriş
 - 🛡️ Otomatik risk taraması + moderasyon — kötüye kullanım insan onayından önce işaretlenir
 - 🔒 Davet linkleri girişsiz kullanıcıya içerik göstermez — önce giriş, sonra içerik
@@ -84,7 +84,7 @@ niyetle okuyan bir topluluk hissi yaratır.
 ## Durum
 
 🟢 Canlı: **[sinerji.web.app](https://sinerji.web.app)**
-🟢 Android: **[Google Play'de yayında](https://play.google.com/store/apps/details?id=app.web.sinerji)** — "Sinerji: Zikir ve Dua Halkası"; 1.2 (Capacitor) incelemede
+🟢 Android: **[Google Play'de yayında](https://play.google.com/store/apps/details?id=app.web.sinerji)** — "Sinerji: Zikir ve Dua Halkası" (1.2.1)
 🧪 iPhone: TestFlight'ta test aşamasında, App Store'a hazırlanıyor
 
 Bu depo yalnızca tanıtım amaçlıdır; kaynak kod ve altyapı yapılandırması ayrı, özel tutulur.
